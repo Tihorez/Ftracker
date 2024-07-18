@@ -57,7 +57,7 @@ func ShowTrainingInfo(action int, trainingType string, duration, weight, height 
 		speed = meanSpeed(action, duration)                               // вызовите здесь необходимую функцию
 		calories = WalkingSpentCalories(action, duration, weight, height) // вызовите здесь необходимую функцию
 	case "Плавание":
-		dist = float64(lengthPool) * float64(countPool) / mInKm    // вызовите здесь необходимую функцию
+		dist = float64(lengthPool*countPool) / mInKm               // вызовите здесь необходимую функцию
 		speed = swimmingMeanSpeed(lengthPool, countPool, duration) // вызовите здесь необходимую функцию
 		calories = SwimmingSpentCalories(lengthPool, countPool, duration, weight)
 		// вызовите здесь необходимую функцию
@@ -65,8 +65,7 @@ func ShowTrainingInfo(action int, trainingType string, duration, weight, height 
 		return "неизвестный тип тренировки"
 	}
 
-	return fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f\n",
-		trainingType, duration, dist, speed, calories)
+	return fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f\n", trainingType, duration, dist, speed, calories)
 }
 
 // Константы для расчета калорий, расходуемых при беге.
