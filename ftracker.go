@@ -44,7 +44,7 @@ func meanSpeed(action int, duration float64) float64 {
 // action int — количество совершенных действий(число шагов при ходьбе и беге, либо гребков при плавании).
 // trainingType string — вид тренировки(Бег, Ходьба, Плавание).
 // duration float64 — длительность тренировки в часах.
-func ShowTrainingInfo(action int, trainingType string, duration, weight, height float64, lengthPool, countPool int) string {
+func ShowTrainingInfo(action int, trainingType string, duration float64, weight float64, height float64, lengthPool int, countPool int) string {
 	var dist, speed, calories float64
 
 	switch trainingType {
@@ -120,7 +120,7 @@ const (
 // lengthPool int — длина бассейна в метрах.
 // countPool int — сколько раз пользователь переплыл бассейн.
 // duration float64 — длительность тренировки в часах.
-func swimmingMeanSpeed(lengthPool, countPool int, duration float64) float64 {
+func swimmingMeanSpeed(lengthPool int, countPool int, duration float64) float64 {
 	if duration == 0 {
 		return 0
 	}
